@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name shoppingApp.controller:AboutCtrl
+ * @name shoppingUiNgApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the shoppingApp
+ * Controller of the shoppingUiNgApp
  */
-angular.module('shoppingApp')
+angular.module('shoppingUiNgApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

@@ -1,5 +1,5 @@
 {
-  "name": "shopping",
+  "name": "shopping-ui-ng",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.4.0",
@@ -15,7 +15,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "shoppingApp",
+  "moduleName": "shoppingUiNgApp",
   "overrides": {
     "bootstrap": {
       "main": [

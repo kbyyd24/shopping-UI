@@ -1,23 +1,47 @@
 <div class="jumbotron">
-  <h1> Shopping</h1>
+  <h1>没钱赚商店</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <!-- <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>使用说明：</strong> 1、点击在售列表的商品(特惠商品为红色背景)添加至购物车；2、点击购物车中的商品进行删除；3、选择完毕后，点击结账按钮，显示小票
+  </div>
+  <div class="alert alert-warning">
+    <lable>请选择优惠规则：</lable>
+    <select>
+      <option value="">满100减10</option>
+    </select>
+  </div>
+  <div id="D-onsale" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+    <h4>商店在售</h4>
+    <ul class="list-group" id="L-onsale">
+    </ul>
+  </div>
+  <div id="D-cart" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+    <h4>购物车</h4>
+    <ul class="list-group" id="L-cart">
+      <a href="" class="list-group-item disabled">
+        购物车为空
+      </a>
+    </ul>
+    <p>当前购物车金额：<b id="final-price">￥0.00</b></p>
+    <a role="button" class="btn btn-danger" onclick="ClearCart();">清空购物车</a>
+  </div>
+  <div id="D-receipt" class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">小票</h3>
+      </div>
+      <div class="panel-body" >
+        <pre id="receipt-content">点击结账此处将显示出购物小票。</pre>
+      </div>
+    </div>
+    <a role="button" class="btn btn-success" onclick="Print(1);">结账</a>
+  </div>
 </div>

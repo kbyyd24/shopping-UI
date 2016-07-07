@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name shoppingApp
+ * @name shoppingUiNgApp
  * @description
- * # shoppingApp
+ * # shoppingUiNgApp
  *
  * Main module of the application.
  */
 angular
-  .module('shoppingApp', [
+  .module('shoppingUiNgApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
