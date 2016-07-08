@@ -61,10 +61,10 @@ function onSaleGoodsInit(){
 	})  
 }
 //向购物车添加商品将选购物品
-function addToCart(barcode){
+function addToCart(id){
 	var cart_list = JSON.parse(localStorage.getItem("cartlist"));
-	if(cart_list.hasOwnProperty(barcode))
-		cart_list[barcode] ++;
+	if(cart_list.hasOwnProperty(id))
+		cart_list[id] ++;
 	else
 		cart_list[id] = 1;
 	localStorage.setItem("cartlist",JSON.stringify(cart_list));
