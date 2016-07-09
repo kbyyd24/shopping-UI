@@ -5,19 +5,29 @@ describe('Controller: MainCtrl', function () {
   // load the controller's module
   beforeEach(module('shoppingUiNgApp'));
 
-  var MainCtrl,
+  var mainCtrl,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($rootScope, $controller) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-      // place here mocked dependencies
+    mainCtrl = $controller('MainCtrl', {
+      $scope: scope,
     });
+
+    scope.$apply();
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  it('should get all items to init item list', function () {
+    expect(mainCtrl.items.length).toBe(10);
+    expect(mainCtrl.items[0].name).toBe("可口可乐");
+    expect(mainCtrl.items[0].barcode).toBe("ITEM00000");
   });
+
+  xit('should get all rules', function () {
+    expect(mainCtrl.items.length).toBe(10);
+    expect(mainxCtrl.items[0].name).toBe("可口可乐");
+    expect(mainCtrl.items[0].barcode).toBe("ITEM00000");
+  });
+
 });
