@@ -1,20 +1,11 @@
 angular.module('shoppingUiNgApp')
-  .service('rulesService', ['$http', '$q', function ($http, $q) {
+  .service('rulesService', ['$http', 'webConfig', function ($http, webConfig) {
     var self = this;
     self.getRules = function () {
-      return $q.when([
-        {
-          "type": 1,
-          "name": "满一百减十块",
-          "barcodes": [
-            "ITEM00000",
-            "ITEM00001",
-            "ITEM00003",
-            "ITEM00006",
-            "ITEM00008"
-          ]
-        }
-      ])
+      return $http.get(webConfig.api.host + "rules")
+        .then(function (response) {
+          return response.data;
+        })
     };
   }
   ]);
