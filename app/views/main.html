@@ -6,10 +6,10 @@
   </p>
   <!-- <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
 </div>
-<pre>{{main.items |json}}</pre>
 <div class="row marketing">
   <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
     <strong>使用说明：</strong> 1、点击在售列表的商品(特惠商品为红色背景)添加至购物车；2、点击购物车中的商品进行删除；3、选择完毕后，点击结账按钮，显示小票
   </div>
   <div class="alert alert-warning">
@@ -18,10 +18,15 @@
       <option value="">满100减10</option>
     </select>
   </div>
+
   <div id="D-onsale" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
     <h4>商店在售</h4>
     <ul class="list-group" id="L-onsale">
-      <h1 ng-repeat="x in records">{{x}}</h1>
+        <li ng-repeat="item in main.items" class="list-group-item">
+          <span>{{item.name}}</span>
+          <span  class="badge">{{item.price + "元/" + item.unit}}</span>
+
+        </li>
     </ul>
   </div>
   <div id="D-cart" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
@@ -39,7 +44,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">小票</h3>
       </div>
-      <div class="panel-body" >
+      <div class="panel-body">
         <pre id="receipt-content">点击结账此处将显示出购物小票。</pre>
       </div>
     </div>

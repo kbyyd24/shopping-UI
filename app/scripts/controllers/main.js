@@ -16,7 +16,7 @@ angular.module('shoppingUiNgApp')
   });
 
 $(function(){
-	onSaleGoodsInit();
+	/*onSaleGoodsInit();*/
 });
 /*
 function rulesInit(){
