@@ -24,10 +24,10 @@ describe('Controller: MainCtrl', function () {
     expect(mainCtrl.items[0].barcode).toBe("ITEM00000");
   });
 
-  xit('should get all rules', function () {
-    expect(mainCtrl.items.length).toBe(10);
-    expect(mainxCtrl.items[0].name).toBe("可口可乐");
-    expect(mainCtrl.items[0].barcode).toBe("ITEM00000");
+  it('should get all rules', function () {
+    expect(mainCtrl.rules.length).toBe(1);
+    expect(mainCtrl.rules[0].name).toBe("满一百减十块");
+    expect(mainCtrl.rules[0].barcodes.length).toBe(5);
   });
 
 });

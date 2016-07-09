@@ -22,10 +22,10 @@
   <div id="D-onsale" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
     <h4>商店在售</h4>
     <ul class="list-group" id="L-onsale">
-        <li ng-repeat="item in main.items" class="list-group-item">
+        <li ng-repeat="item in main.items" class="list-group-item" ng-class="
+        {'list-group-item-danger': main.hasDiscount(item) }">
           <span>{{item.name}}</span>
           <span  class="badge">{{item.price + "元/" + item.unit}}</span>
-
         </li>
     </ul>
   </div>
