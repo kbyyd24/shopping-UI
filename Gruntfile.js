@@ -39,14 +39,16 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+//        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+        tasks: [],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
+//        tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma:unit']
+        tasks: ['karma:unit']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -220,7 +222,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -422,7 +424,15 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
-      }
+      },
+      debug: {
+              configFile: 'test/karma.conf.js',
+              singleRun: false,
+              autoWatch:true,
+               browsers: [
+                    'Chrome'
+                  ],
+            }
     }
   });
 
@@ -453,7 +463,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'postcss',
     'connect:test',
-    'karma'
+    'karma:unit'
   ]);
 
   grunt.registerTask('build', [
@@ -475,8 +485,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'newer:jscs',
+//    'newer:jshint',
+//    'newer:jscs',
     'test',
     'build'
   ]);
