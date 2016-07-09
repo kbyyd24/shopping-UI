@@ -6,7 +6,7 @@
   </p>
   <!-- <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
 </div>
-
+<pre>{{main.items |json}}</pre>
 <div class="row marketing">
   <div class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -21,6 +21,7 @@
   <div id="D-onsale" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
     <h4>商店在售</h4>
     <ul class="list-group" id="L-onsale">
+      <h1 ng-repeat="x in records">{{x}}</h1>
     </ul>
   </div>
   <div id="D-cart" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
@@ -31,7 +32,7 @@
       </a>
     </ul>
     <p>当前购物车金额：<b id="final-price">￥0.00</b></p>
-    <a role="button" class="btn btn-danger" onclick="ClearCart();">清空购物车</a>
+    <a role="button" class="btn btn-danger" ng-click="ClearCart();">清空购物车</a>
   </div>
   <div id="D-receipt" class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
     <div class="panel panel-default">
@@ -42,6 +43,6 @@
         <pre id="receipt-content">点击结账此处将显示出购物小票。</pre>
       </div>
     </div>
-    <a role="button" class="btn btn-success" onclick="Print(1);">结账</a>
+    <a role="button" class="btn btn-success" ng-click="Print(1);">结账</a>
   </div>
 </div>
