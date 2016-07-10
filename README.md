@@ -1,5 +1,5 @@
 
-shopping-ui [![Build Status](https://travis-ci.org/kbyyd24/shopping-UI.svg?branch=master)](https://travis-ci.org/kbyyd24/shopping-UI)
+shopping-ui [![Build Status](https://travis-ci.org/kbyyd24/shopping-ui.svg?branch=master)](https://travis-ci.org/kbyyd24/shopping-ui)
 =======================================================================================================================
 
 收银机 - G1 - 全单满100减10块
