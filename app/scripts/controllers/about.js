@@ -8,10 +8,10 @@
  * Controller of the shoppingUiNgApp
  */
 angular.module('shoppingUiNgApp')
-  .controller('AboutCtrl', function () {
+.controller('AboutCtrl', function () {
     this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+	    'HTML5 Boilerplate',
+	    'AngularJS',
+	    'Karma'
     ];
-  });
+});

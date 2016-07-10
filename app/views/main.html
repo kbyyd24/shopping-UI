@@ -4,7 +4,7 @@
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
   </p>
-  <!-- <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
+  
 </div>
 <div class="row marketing">
   <div class="alert alert-info alert-dismissible" role="alert">
@@ -12,18 +12,18 @@
     </button>
     <strong>使用说明：</strong> 1、点击在售列表的商品(特惠商品为红色背景)添加至购物车；2、点击购物车中的商品进行删除；3、选择完毕后，点击结账按钮，显示小票
   </div>
-  <div class="alert alert-warning">
+  <!-- <div class="alert alert-warning">
     <lable>请选择优惠规则：</lable>
     <select>
       <option value="">满100减10</option>
     </select>
-  </div>
+  </div> -->
 
   <div id="D-onsale" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
     <h4>商店在售</h4>
     <ul class="list-group" id="L-onsale">
         <li ng-repeat="item in main.items" class="list-group-item" ng-class="
-        {'list-group-item-danger': main.hasDiscount(item) }">
+        {'list-group-item-danger': main.hasDiscount(item) }" ng-click="main.addToCart(item)"> 
           <span>{{item.name}}</span>
           <span  class="badge">{{item.price + "元/" + item.unit}}</span>
         </li>
@@ -32,11 +32,12 @@
   <div id="D-cart" class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
     <h4>购物车</h4>
     <ul class="list-group" id="L-cart">
-      <a href="" class="list-group-item disabled">
-        购物车为空
-      </a>
+        <li ng-repeat="add in main.itemInCart" class="list-group-item">
+            <span>{{add.name}}</span>
+            <span  class="badge">{{add.unit}}</span>
+        </li>
     </ul>
-    <p>当前购物车金额：<b id="final-price">￥0.00</b></p>
+    
     <a role="button" class="btn btn-danger" ng-click="ClearCart();">清空购物车</a>
   </div>
   <div id="D-receipt" class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
