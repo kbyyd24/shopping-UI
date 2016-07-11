@@ -28,21 +28,32 @@ angular.module('shoppingUiNgApp')
 		    })
 		    .value();
 	    };
-	    var itemInCart = [{
-							barcode:"ITEM00003",
-							category:"食品",
-							name:"趣多多",
-							price:6,
-							subCategory:"饼干",
-							unit:"条"
-						}];
-	    var i = 0;
-	    vm.addToCart = function(item){
-	    	
-	    	itemInCart[i++] = item ;
-	    	console.log(itemInCart);
-	    };
 
+	    vm.itemInCart = [];
+	    vm.addToCart = function(item){
+	    	return _.chain(vm.itemInCart)
+		    .map(function(o){
+		        return o.barcode;
+	    	})
+		    .flatten()
+		    .some(function(barcode){
+		    	return item.barcode === barcode;
+		    })
+		    .tap(function(vm.itemInCart) {
+			   
+			 })
+		    .isSymbol(function(result){
+		    	result == true ? {vm.itemInCart.push(item); return true; } : {return false;} ;
+		    })
+		    .value();
+	    }
+	    
+	    vm.clearCart = function(){
+	    	vm.itemInCart = [];
+	    };
+	    vm.printReceipt = function(){
+	    	
+	    };
 
 	});
 
