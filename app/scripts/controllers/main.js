@@ -7,16 +7,21 @@
  * # MainCtrl
  * Controller of the shoppingUiNgApp
  */
+
 angular.module('shoppingUiNgApp')
-	.controller('MainCtrl', function (itemService, rulesService) {
+	.controller('MainCtrl', function (itemService, rulesService, paymentService) {
 	    var vm = this;
 	    itemService.getItems().then(function (result) {
 	      vm.items = result;
 	    });
 	    rulesService.getRules().then(function(result){
-	      vm.rules =result;
+	      vm.rules = result;
+	    });
+	    paymentService.getPayment().then(function(result){
+	      vm.payment = result;
 	    });
 
+	    /*检查某商品是否参与活动，如参与，有颜色标识*/
 	    vm.hasDiscount = function(item){
 		    return _.chain(vm.rules)
 		    .map(function(item){
@@ -29,76 +34,45 @@ angular.module('shoppingUiNgApp')
 		    .value();
 	    };
 
+	    /*itemInCart用于记录购物车中已有商品，addToCart将根据商品点击事件添加购物车中不存在的商品*/
 	    vm.itemInCart = [];
-	    vm.addToCart = function(item){
-	    	return _.chain(vm.itemInCart)
-		    .map(function(o){
-		        return o.barcode;
-	    	})
-		    .flatten()
-		    .some(function(barcode){
-		    	return item.barcode === barcode;
-		    })
-		    .tap(function(vm.itemInCart) {
-			   
-			 })
-		    .isSymbol(function(result){
-		    	result == true ? {vm.itemInCart.push(item); return true; } : {return false;} ;
-		    })
-		    .value();
+      	vm.addToCart = function(item){
+        	var result = _.chain(vm.itemInCart)
+        	.map(function(o){
+            	return o.barcode;
+        	})
+	        .flatten()
+	        .some(function(barcode){
+	          	return item.barcode === barcode;
+	        })
+	        .value();
+	        if(result == false)
+	          	vm.itemInCart.push(item);
+	    };
+
+	    /*记录购物车中商品信息，将此数据传递给后台并生成小票*/
+      	vm.cartData = function(){
+        	var inputs = angular.element("input");
+        	var cartList = [];
+
+        	for(var i in vm.itemInCart)
+          		cartList[i] = vm.itemInCart[i].barcode + "-" + inputs[i].value;
+        	return cartList;
+	    };
+	    
+	    /*检查购物车是否为空，如果为空，将显示空购物车提示*/
+	    vm.cartIsEmpty = function(){
+	    	return (vm.itemInCart == [] ? true : false);
 	    }
 	    
+	    /*清空购物车*/
 	    vm.clearCart = function(){
 	    	vm.itemInCart = [];
 	    };
+	    
+	    /*打印小票*/
 	    vm.printReceipt = function(){
 	    	
 	    };
-
 	});
 
-/*$(function(){
-	
-
-//向购物车添加商品将选购物品
-function addToCart(id){
-	var cart_list = JSON.parse(localStorage.getItem("cartlist"));
-	if(cart_list.hasOwnProperty(id))
-		cart_list[id] ++;
-	else
-		cart_list[id] = 1;
-	localStorage.setItem("cartlist",JSON.stringify(cart_list));
-	DrawCart();
-}
-//删除购物车中物品
-function deleteFromCart(id){
-	var cart_list = JSON.parse(localStorage.getItem("cartlist"));
-	if(cart_list[id]>1)
-		cart_list[id] --;
-	else
-		delete cart_list[id];
-	localStorage.setItem("cartlist",JSON.stringify(cart_list));
-	DrawCart();
-}
-//重绘购物车用
-function DrawCart(){
-
-	var cart_list = JSON.parse(localStorage.getItem("cartlist"));
-	var total_sum = 0.0;
-	var cartstr = "";
-	for(item in cart_list)
-	{
-		for(index = 0;index<onsale_data.length;index++)
-		{
-			if(item == onsale_data[index].barcode)
-				break;
-		}
-		total_sum += cart_list[item] * parseFloat(onsale_data[index].price);
-		cartstr += '<a onclick="deleteFromCart(\''+onsale_data[index].barcode
-		+'\')" class="list-group-item" id="'+onsale_data[index].barcode
-		+'"><span class="badge">'+cart_list[item]
-		+onsale_data[index].unit+'</span>'+ onsale_data[index].name+'</a>'
-	}
-	$("#L-cart").html(cartstr);
-	$("#final-price").html("￥"+total_sum.toFixed(2)+"（元）");
-}*/
