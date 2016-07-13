@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="133aa9b6-1e9f-4804-9325-dd19aef8951d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/service/configService.js" afterPath="$PROJECT_DIR$/app/scripts/service/configService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.css" afterPath="$PROJECT_DIR$/app/styles/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
     </list>
     <ignored path="shopping-ui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,6 +76,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Summer-Dong" />
+      </list>
+    </option>
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -472,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1468054964264</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="【N/A】add goods to cart try ro show receipt">
+      <created>1468329656540</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1468329656540</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -522,7 +529,8 @@
     <MESSAGE value="【N/A】show all goods" />
     <MESSAGE value="【N/A】test" />
     <MESSAGE value="【N/A】test rules" />
-    <option name="LAST_COMMIT_MESSAGE" value="【N/A】test rules" />
+    <MESSAGE value="【N/A】add goods to cart try ro show receipt" />
+    <option name="LAST_COMMIT_MESSAGE" value="【N/A】add goods to cart try ro show receipt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
