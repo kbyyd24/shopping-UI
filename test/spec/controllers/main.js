@@ -31,7 +31,18 @@ describe('Controller: MainCtrl', function () {
           ]
       }
      ]);
-
+    $httpBackend.whenGET('http://localhost:8080/payment').respond([{
+          "type": 1,
+          "name": "满一百减十块",
+          "barcodes": [
+              "ITEM00000",
+              "ITEM00001",
+              "ITEM00003",
+              "ITEM00006",
+              "ITEM00008"
+          ]
+      }
+     ]);
 
     mainCtrl = $controller('MainCtrl', {
       $scope: scope
