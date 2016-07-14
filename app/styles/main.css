@@ -11,14 +11,28 @@ body {
 .nums{
    font-size: 10px;
    position: absolute;
-   overflow: auto;
    left: 150px;
-   right: 0px;
 }
 .inputNum{
   width: 20%;
 }
-
+.pointer{
+  cursor: pointer;
+}
+#receiptContent{
+  margin: 20px;
+  padding: 20px;
+  border: 3px dashed #ccc;
+  box-shadow: 3px 3px 3px 3px #ccc;
+}
+#title{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+a{
+  float: right;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

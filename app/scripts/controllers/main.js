@@ -17,10 +17,7 @@ angular.module('shoppingUiNgApp')
 	    rulesService.getRules().then(function(result){
 	      vm.rules = result;
 	    });
-	    paymentService.getPayment().then(function(result){
-	      vm.payment = result;
-	    });
-
+	   
 	    /*检查某商品是否参与活动，如参与，有颜色标识*/
 	    vm.hasDiscount = function(item){
 		    return _.chain(vm.rules)
@@ -50,19 +47,9 @@ angular.module('shoppingUiNgApp')
 	          	vm.itemInCart.push(item);
 	    };
 
-	    /*记录购物车中商品信息，将此数据传递给后台并生成小票*/
-      	vm.cartData = function(){
-        	var inputs = angular.element("input");
-        	var cartList = [];
-
-        	for(var i in vm.itemInCart)
-          		cartList[i] = vm.itemInCart[i].barcode + "-" + inputs[i].value;
-        	return cartList;
-	    };
-	    
 	    /*检查购物车是否为空，如果为空，将显示空购物车提示*/
 	    vm.cartIsEmpty = function(){
-	    	return (vm.itemInCart == [] ? true : false);
+	    	return (vm.itemInCart.length == 0 ? true : false);
 	    }
 	    
 	    /*清空购物车*/
@@ -71,8 +58,27 @@ angular.module('shoppingUiNgApp')
 	    };
 	    
 	    /*打印小票*/
+	    vm.printClickFlag = false;
 	    vm.printReceipt = function(){
-	    	
+	    	/*获取购物车信息并封装成数组*/
+			var inputs = angular.element("input");
+        	var cartList = [];
+
+        	for(var i in vm.itemInCart)
+          		cartList[i] = vm.itemInCart[i].barcode + "-" + inputs[i].value;
+
+			var list = new Object(); 
+			list.items = cartList; 
+			var json = JSON.stringify(list);
+
+	    	paymentService.getPayment(json).then(function(result){
+		      	vm.payment = result;
+		      	vm.printClickFlag = true;
+		      	console.log(result);
+		    });
+ 	    	/*清空购物车*/
+ 	    	vm.itemInCart = [];
+
 	    };
 	});
 
