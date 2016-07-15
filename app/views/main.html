@@ -65,7 +65,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="item in main.payment.data.resultItems">
+                            <tr ng-repeat="item in main.payment.resultItems">
                                 <td>{{item.name}}</td>
                                 <td>{{item.amount}}{{item.unit}}</td>
                                 <td>{{item.price}}(元)</td>
@@ -73,7 +73,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table" ng-class="{true: 'hide', false: 'show'}[main.payment.data.sale < 10]">
+                    <table class="table" ng-class="{true: 'hide', false: 'show'}[main.payment.sale < 10]">
                         <thead>
                             <tr>
                                 <th>不参与优惠商品：</th>
@@ -83,16 +83,16 @@
                                 <th>价格</th>
                             </tr>
                         </thead>
-                        <tr ng-repeat="item in main.payment.data.noSaleResult.noSaleItems">
+                        <tr ng-repeat="item in main.payment.noSaleResult.noSaleItems">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}(元)</td>
                             <td></td>
                             <td></td>
                         </tr>
                     </table>
-                    <p ng-if="main.payment.data.sale < 10">参与优惠总价：<span>{{main.payment.data.noSaleResult.sum}}</span>(元)，优惠：<span>{{main.payment.data.noSaleResult.sale}}</span>(元)</p>
-                    <p>总计：<span>{{main.payment.data.total}}</span>(元)</p>
-                    <p ng-class="{true: 'hide', false: 'show'}[main.payment.data.sale < 10]">节省：<span>{{main.payment.data.sale}}</span>(元)</p>
+                    <p ng-if="main.payment.sale >= 10">参与优惠总价：<span>{{main.payment.noSaleResult.sum}}</span>(元)，优惠：<span>{{main.payment.noSaleResult.sale}}</span>(元)</p>
+                    <p>总计：<span>{{main.payment.total}}</span>(元)</p>
+                    <p ng-class="{true: 'hide', false: 'show'}[main.payment.sale < 10]">节省：<span>{{main.payment.sale}}</span>(元)</p>
                 </div>
             </div>
         </div>

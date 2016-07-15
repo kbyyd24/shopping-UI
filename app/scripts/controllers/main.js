@@ -2,8 +2,8 @@
 
 /**
  * @ngdoc function
- * @name shoppingUiNgApp.controller:MainCtrl
- * @description
+ * @Summer shoppingUiNgApp.controller:MainCtrl
+ * @2016-7-15
  * # MainCtrl
  * Controller of the shoppingUiNgApp
  */
@@ -77,7 +77,7 @@ angular.module('shoppingUiNgApp')
                     return item.amount;
                 })
                 .map(function(item) {
-                    return item.amount === 1 ? itemitem.barcode : (itemitem.barcode + '-' + item.amount);
+                    return item.amount === 1 ? item.barcode : (item.barcode + '-' + item.amount);
                 })
                 .value();
 
