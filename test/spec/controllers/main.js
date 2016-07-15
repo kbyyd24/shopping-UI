@@ -95,10 +95,10 @@ describe('Controller: MainCtrl', function() {
     it('should get all payments', inject(function($httpBackend) {
         $httpBackend.flush();
 
-        expect(mainCtrl.payment.resultItems.length).toBe(3);
-        expect(mainCtrl.payment.noSaleResult.sum).toBe(16);
-        expect(mainCtrl.payment.noSaleResult.noSaleItems[0].name).toBe("苹果");
-        expect(mainCtrl.payment.total).toBe(21);
+        expect(mainCtrl.resultItems.length).toBe(3);
+        expect(mainCtrl.noSaleResult.sum).toBe(16);
+        expect(mainCtrl.noSaleResult.noSaleItems[0].name).toBe("苹果");
+        expect(mainCtrl.total).toBe(21);
     }));
 
 });
