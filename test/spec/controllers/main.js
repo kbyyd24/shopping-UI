@@ -31,6 +31,8 @@ describe('Controller: MainCtrl', function() {
                 "ITEM00008"
             ]
         }]);
+
+/*
         $httpBackend.whenPOST('http://localhost:8080/payment',"test message").respond(
             {
                 "resultItems":[
@@ -67,7 +69,7 @@ describe('Controller: MainCtrl', function() {
                 "total":21
             }
         );
-
+*/
         mainCtrl = $controller('MainCtrl', {
             $scope: scope
         });
@@ -91,7 +93,7 @@ describe('Controller: MainCtrl', function() {
         expect(mainCtrl.rules[0].name).toBe("满一百减十块");
         expect(mainCtrl.rules[0].barcodes.length).toBe(5);
     }));
-
+/*
     it('should get all payments', inject(function($httpBackend) {
         $httpBackend.flush();
 
@@ -100,5 +102,6 @@ describe('Controller: MainCtrl', function() {
         expect(mainCtrl.noSaleResult.noSaleItems[0].name).toBe("苹果");
         expect(mainCtrl.total).toBe(21);
     }));
+*/
 
 });
