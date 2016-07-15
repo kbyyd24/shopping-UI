@@ -29,14 +29,14 @@ body {
     cursor: pointer;
 }
 
-#receiptContent {
+.receiptContent {
     margin: 20px;
     padding: 20px;
     border: 3px dashed #ccc;
     box-shadow: 3px 3px 3px 3px #ccc;
 }
 
-#title {
+.receiptTitle {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
