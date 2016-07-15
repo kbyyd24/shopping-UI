@@ -50,10 +50,9 @@ module.exports = function(grunt) {
                 //        tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma:unit']
                 tasks: ['karma:unit']
             },
-            //styles: {
-               // files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-             //   tasks: ['newer:copy:styles', 'postcss']
-           // },
+            styles: {
+                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+            },
             gruntfile: {
                 files: ['Gruntfile.js']
             },
@@ -171,34 +170,6 @@ module.exports = function(grunt) {
             },
             server: '.tmp'
         },
-
-        // Add vendor prefixed styles
-        /*postcss: {
-            options: {
-                processors: [
-                    require('autoprefixer-core')({ browsers: ['last 1 version'] })
-                ]
-            },
-            server: {
-                options: {
-                    map: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: '.tmp/styles/',*/
-                   // src: '{,*/}*.css',
-                    /*dest: '.tmp/styles/'
-                }]
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '.tmp/styles/',*/
-                   // src: '{,*/}*.css',
-                   /* dest: '.tmp/styles/'
-                }]
-            }
-        },*/
 
         // Automatically inject Bower components into the app
         wiredep: {
@@ -448,7 +419,6 @@ module.exports = function(grunt) {
             'clean:server',
             'wiredep',
             'concurrent:server',
-           /* 'postcss:server',*/
             'connect:livereload',
             'watch'
         ]);
@@ -463,7 +433,6 @@ module.exports = function(grunt) {
         'clean:server',
         'wiredep',
         'concurrent:test',
-        /*'postcss',*/
         'connect:test',
         'karma:unit'
     ]);
@@ -473,7 +442,6 @@ module.exports = function(grunt) {
         'wiredep',
         'useminPrepare',
         'concurrent:dist',
-        /*'postcss',*/
         'ngtemplates',
         'concat',
         'ngAnnotate',
