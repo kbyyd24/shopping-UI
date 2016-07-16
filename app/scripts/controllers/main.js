@@ -70,6 +70,7 @@ angular.module('shoppingUiNgApp')
         vm.printClickFlag = false;
         vm.printReceipt = function() {
             /*获取购物车信息并封装成数组*/
+         //   console.info('......start get items', vm.itemInCart)
             var payment = _.chain(vm.itemInCart)
                 .filter(function(item) {
                     return item.amount;
@@ -81,9 +82,9 @@ angular.module('shoppingUiNgApp')
 
             paymentService.getPayment({ items: payment })
                 .then(function(result) {
+                 //   console.log('ressult from backend:', result);
                     vm.payment = result;
                     vm.printClickFlag = true;
-                    console.log(result);
                 })
                 .then(function() {
                     vm.itemInCart = [];
